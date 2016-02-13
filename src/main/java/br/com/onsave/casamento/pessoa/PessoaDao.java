@@ -15,11 +15,20 @@ public class PessoaDao {
     @Inject
     private GenericDao dao;
     
-    @Inject
-    private Logger logger;
-    
     public void save(Pessoa pessoa){
         dao.save(pessoa);
+    }
+    
+    public Pessoa update(Pessoa pessoa) {
+        return (Pessoa) dao.update(pessoa);
+    }
+
+    public Pessoa load(String id){
+        return (Pessoa) dao.load(id, Pessoa.class);
+    }
+    
+    public Pessoa findById(String id) {
+        return (Pessoa) dao.findById(id, Pessoa.class);
     }
     
 }
